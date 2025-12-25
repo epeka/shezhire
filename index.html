@@ -12,14 +12,14 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
@@ -27,124 +27,160 @@
             text-align: center;
             color: white;
             margin-bottom: 40px;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            font-weight: 800;
+            letter-spacing: -1px;
         }
 
         header p {
-            font-size: 1.2em;
-            opacity: 0.9;
+            font-size: 1.3em;
+            opacity: 0.95;
+            font-weight: 500;
         }
 
         .subtitle {
-            margin-top: 10px;
+            margin-top: 15px;
+            font-size: 1em;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .stats-bar {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-label {
             font-size: 0.9em;
-            opacity: 0.85;
+            opacity: 0.9;
         }
 
         .view-toggle {
             display: flex;
-            gap: 10px;
+            gap: 15px;
             justify-content: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             flex-wrap: wrap;
         }
 
         .view-btn {
-            padding: 12px 24px;
+            padding: 15px 30px;
             background: white;
             border: none;
-            border-radius: 25px;
+            border-radius: 30px;
             cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            font-weight: 700;
+            font-size: 1em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
         }
 
         .view-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .view-btn.active {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
         }
 
-        .tree-view, .list-view, .timeline-view {
+        .tree-view, .list-view, .family-view {
             display: none;
         }
 
-        .tree-view.active, .list-view.active, .timeline-view.active {
+        .tree-view.active, .list-view.active, .family-view.active {
             display: block;
         }
 
-        /* Tree View Styles */
-        .tree-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        /* Family Tree View - Modern Hierarchical */
+        .family-tree {
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
         }
 
-        .generation {
+        .generation-group {
+            margin-bottom: 50px;
+        }
+
+        .gen-header {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #e2e8f0;
             display: flex;
             align-items: center;
-            gap: 20px;
-            animation: slideIn 0.5s ease-out;
-            animation-fill-mode: both;
+            gap: 15px;
         }
 
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        .gen-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2em;
         }
 
-        .connector {
-            width: 40px;
-            height: 2px;
-            background: white;
+        .family-branch {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            margin-bottom: 30px;
             position: relative;
-            flex-shrink: 0;
         }
 
-        .connector::before {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 0;
-            height: 0;
-            border-left: 8px solid white;
-            border-top: 5px solid transparent;
-            border-bottom: 5px solid transparent;
+        .parent-card {
+            flex-shrink: 0;
+            width: 280px;
         }
 
         .person-card {
-            flex: 1;
-            padding: 20px;
+            padding: 25px;
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
+            border: 2px solid transparent;
         }
 
         .person-card::before {
@@ -153,109 +189,148 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 5px;
+            height: 6px;
             background: linear-gradient(90deg, var(--card-color-1), var(--card-color-2));
         }
 
         .person-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--card-color-1);
         }
 
         .person-card.selected {
-            box-shadow: 0 0 0 4px #667eea;
+            box-shadow: 0 0 0 4px var(--card-color-1);
+            border-color: var(--card-color-1);
         }
 
         .gen-badge {
             display: inline-block;
-            padding: 4px 12px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 6px 14px;
+            background: linear-gradient(135deg, var(--card-color-1), var(--card-color-2));
             color: white;
-            border-radius: 12px;
+            border-radius: 20px;
             font-size: 0.85em;
-            font-weight: 600;
-            margin-bottom: 10px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
         }
 
         .person-name {
+            font-size: 1.6em;
+            font-weight: 800;
+            color: #2d3748;
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
+
+        .person-name-en {
+            font-size: 0.65em;
+            color: #718096;
+            font-weight: 500;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .person-desc {
+            color: #718096;
+            margin-bottom: 12px;
+            font-size: 0.95em;
+        }
+
+        .special-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
             font-size: 1.8em;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+
+        .children-container {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            border-radius: 20px;
+            border: 2px dashed rgba(102, 126, 234, 0.2);
+        }
+
+        .child-card {
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+            cursor: pointer;
+            transition: all 0.3s;
+            border-left: 4px solid var(--card-color-1);
+        }
+
+        .child-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .child-name {
+            font-size: 1.3em;
             font-weight: 700;
             color: #2d3748;
             margin-bottom: 5px;
         }
 
-        .person-name-kz {
-            font-size: 0.9em;
+        .child-gen {
+            font-size: 0.85em;
             color: #718096;
-            font-weight: 400;
+            font-weight: 500;
         }
 
-        .person-desc {
-            color: #718096;
-            margin-bottom: 10px;
-        }
-
-        .person-details {
-            display: none;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 2px solid #e2e8f0;
-            color: #4a5568;
-            line-height: 1.6;
-        }
-
-        .person-card.selected .person-details {
-            display: block;
-            animation: fadeIn 0.3s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .special-badge {
+        .connector-line {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 1.5em;
+            left: 280px;
+            top: 50%;
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--card-color-1), transparent);
         }
 
-        /* List View Styles */
+        /* List View - Enhanced */
         .list-container {
             display: grid;
-            gap: 15px;
+            gap: 20px;
         }
 
         .list-item {
             display: flex;
             align-items: center;
-            gap: 20px;
-            padding: 20px;
+            gap: 25px;
+            padding: 25px;
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-left: 6px solid var(--card-color-1);
         }
 
         .list-item:hover {
             transform: translateX(10px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
         }
 
         .list-number {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--card-color-1), var(--card-color-2));
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5em;
+            font-size: 1.8em;
             font-weight: 700;
             flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .list-content {
@@ -263,7 +338,7 @@
         }
 
         .list-name {
-            font-size: 1.4em;
+            font-size: 1.6em;
             font-weight: 700;
             color: #2d3748;
             margin-bottom: 5px;
@@ -271,72 +346,22 @@
 
         .list-desc {
             color: #718096;
+            font-size: 1em;
         }
 
-        /* Timeline View Styles */
-        .timeline-container {
-            position: relative;
-            padding-left: 60px;
-        }
-
-        .timeline-line {
-            position: absolute;
-            left: 30px;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(180deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 40px;
-            animation: slideIn 0.5s ease-out;
-            animation-fill-mode: both;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: -45px;
-            top: 20px;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background: white;
-            border: 4px solid;
-            border-color: var(--card-color-1);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .timeline-card {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: all 0.3s;
-            border-left: 5px solid;
-            border-color: var(--card-color-1);
-        }
-
-        .timeline-card:hover {
-            transform: translateX(10px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Info Panel */
+        /* Info Panel - Premium Design */
         .info-panel {
             position: fixed;
-            right: -100%;
+            right: -450px;
             top: 0;
-            width: 400px;
+            width: 450px;
             max-width: 100%;
             height: 100vh;
             background: white;
-            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.2);
-            padding: 30px;
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.3);
+            padding: 40px;
             overflow-y: auto;
-            transition: right 0.3s;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 1000;
         }
 
@@ -346,51 +371,126 @@
 
         .close-btn {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 25px;
+            right: 25px;
             background: #f7fafc;
             border: none;
-            width: 35px;
-            height: 35px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1.2em;
+            font-size: 1.4em;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s;
+            color: #4a5568;
+            font-weight: 300;
         }
 
         .close-btn:hover {
-            background: #edf2f7;
+            background: #e2e8f0;
             transform: rotate(90deg);
+        }
+
+        .info-header {
+            margin-bottom: 30px;
+        }
+
+        .info-title {
+            font-size: 2.2em;
+            font-weight: 800;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+
+        .info-badge {
+            padding: 12px 20px;
+            background: linear-gradient(135deg, var(--info-color-1), var(--info-color-2));
+            color: white;
+            border-radius: 15px;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .info-section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f7fafc;
+            border-radius: 15px;
+            border-left: 4px solid var(--info-color-1);
+        }
+
+        .info-label {
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 5px;
+            font-size: 0.95em;
+        }
+
+        .info-value {
+            color: #4a5568;
+            line-height: 1.6;
         }
 
         .actions {
             display: flex;
-            gap: 10px;
+            gap: 15px;
             justify-content: center;
-            margin-top: 30px;
+            margin-top: 40px;
             flex-wrap: wrap;
         }
 
         .action-btn {
-            padding: 12px 24px;
+            padding: 15px 30px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
-            border-radius: 25px;
+            border-radius: 30px;
             cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
+            font-weight: 700;
+            font-size: 1em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
         }
 
         .action-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .legend {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .legend-title {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+
+        .legend-items {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .legend-icon {
+            font-size: 1.5em;
         }
 
         @media (max-width: 768px) {
@@ -398,20 +498,39 @@
                 font-size: 2em;
             }
 
-            .person-name {
-                font-size: 1.3em;
+            .family-branch {
+                flex-direction: column;
+            }
+
+            .parent-card {
+                width: 100%;
+            }
+
+            .children-container {
+                grid-template-columns: 1fr;
             }
 
             .info-panel {
                 width: 100%;
+                right: -100%;
             }
 
-            .connector {
-                width: 20px;
+            .stat-item {
+                padding: 10px 20px;
             }
 
-            .generation {
-                gap: 10px;
+            .stat-number {
+                font-size: 1.5em;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .view-toggle, .actions, .close-btn {
+                display: none;
             }
         }
     </style>
@@ -422,30 +541,54 @@
             <h1>🌳 Менің Шежірем</h1>
             <p>My Kazakh Family Tree • Жеті Ата (Seven Ancestors)</p>
             <p class="subtitle">Дулат руы • Ұлы жүз • Жамбыл облысы, Қордай<br>Dulat Tribe • Uly Zhuz • Zhambyl region, Kordai</p>
+            
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-number" id="totalCount">22</span>
+                    <span class="stat-label">Адамдар • People</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">13</span>
+                    <span class="stat-label">Ұрпақтар • Generations</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Branches</span>
+                </div>
+            </div>
         </header>
 
-        <div class="view-toggle">
-            <button class="view-btn active" onclick="switchView('tree')">🌲 Ағаш • Tree View</button>
-            <button class="view-btn" onclick="switchView('list')">📋 Тізім • List View</button>
-            <button class="view-btn" onclick="switchView('timeline')">⏳ Уақыт • Timeline</button>
+        <div class="legend">
+            <div class="legend-title">🔍 Белгілер • Legend</div>
+            <div class="legend-items">
+                <div class="legend-item">
+                    <span class="legend-icon">🏛️</span>
+                    <span>Рұ бастауы • Tribal Origin</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-icon">👴</span>
+                    <span>Атаң • Grandfather</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-icon">👨</span>
+                    <span>Қазіргі ұрпақ • Current Generation</span>
+                </div>
+            </div>
         </div>
 
-        <!-- Tree View -->
-        <div class="tree-view active">
-            <div class="tree-container" id="treeContainer"></div>
+        <div class="view-toggle">
+            <button class="view-btn active" onclick="switchView('family')">👨‍👩‍👧‍👦 Отбасылық • Family Tree</button>
+            <button class="view-btn" onclick="switchView('list')">📋 Тізім • List View</button>
+        </div>
+
+        <!-- Family Tree View -->
+        <div class="family-view active">
+            <div class="family-tree" id="familyTree"></div>
         </div>
 
         <!-- List View -->
         <div class="list-view">
             <div class="list-container" id="listContainer"></div>
-        </div>
-
-        <!-- Timeline View -->
-        <div class="timeline-view">
-            <div class="timeline-container">
-                <div class="timeline-line"></div>
-                <div id="timelineContainer"></div>
-            </div>
         </div>
 
         <div class="actions">
@@ -462,189 +605,109 @@
     </div>
 
     <div class="info-panel" id="infoPanel">
-        <button class="close-btn" onclick="closeInfo()">✕</button>
+        <button class="close-btn" onclick="closeInfo()">×</button>
         <div id="infoPanelContent"></div>
     </div>
 
     <script>
-        const shezhireData = [
-            { 
-                gen: 1, 
-                name: "Дулат", 
-                nameEn: "Dulat", 
-                desc: "Рұ (Tribe) - Ұлы жүз", 
-                descKz: "Рұ - Ұлы жүздің ең ірі тайпаларының бірі",
-                color1: "#667eea", 
-                color2: "#764ba2", 
-                special: "🏛️",
-                relation: "Tribal Origin",
-                relationKz: "Тайпалық бастау"
-            },
-            { 
-                gen: 2, 
-                name: "Жаныс", 
-                nameEn: "Zhanys", 
-                desc: "2nd Generation Ancestor", 
-                descKz: "2-ші ұрпақ ата-бабам",
-                color1: "#4facfe", 
-                color2: "#00f2fe",
-                relation: "Ancient Ancestor",
-                relationKz: "Ерте заманғы ата"
-            },
-            { 
-                gen: 3, 
-                name: "Жарылқамыс", 
-                nameEn: "Zharylkamys", 
-                desc: "3rd Generation Ancestor", 
-                descKz: "3-ші ұрпақ ата-бабам",
-                color1: "#43e97b", 
-                color2: "#38f9d7",
-                relation: "Ancient Ancestor",
-                relationKz: "Ерте заманғы ата"
-            },
-            { 
-                gen: 4, 
-                name: "Бұқар", 
-                nameEn: "Buqar", 
-                desc: "4th Generation Ancestor", 
-                descKz: "4-ші ұрпақ ата-бабам",
-                color1: "#fa709a", 
-                color2: "#fee140",
-                relation: "Ancient Ancestor",
-                relationKz: "Ерте заманғы ата"
-            },
-            { 
-                gen: 5, 
-                name: "Жауғаш", 
-                nameEn: "Zhaugash", 
-                desc: "5th Generation Ancestor", 
-                descKz: "5-ші ұрпақ ата-бабам",
-                color1: "#30cfd0", 
-                color2: "#330867",
-                relation: "Ancient Ancestor",
-                relationKz: "Ерте заманғы ата"
-            },
-            { 
-                gen: 6, 
-                name: "Сүйіндік", 
-                nameEn: "Suyindik", 
-                desc: "6th Generation Ancestor", 
-                descKz: "6-шы ұрпақ ата-бабам",
-                color1: "#a8edea", 
-                color2: "#fed6e3",
-                relation: "Ancient Ancestor",
-                relationKz: "Ерте заманғы ата"
-            },
-            { 
-                gen: 7, 
-                name: "Құлсары", 
-                nameEn: "Qulsary", 
-                desc: "7th Generation Ancestor", 
-                descKz: "7-ші ұрпақ ата-бабам (Жеті ата)",
-                color1: "#ff9a9e", 
-                color2: "#fecfef",
-                relation: "Seventh Ancestor (Жеті ата)",
-                relationKz: "Жетінші ата (Жеті ата)"
-            },
-            { 
-                gen: 8, 
-                name: "Қосқұлақ", 
-                nameEn: "Qosqulaq", 
-                desc: "Great-great-great-great grandfather", 
-                descKz: "Немере-немере атасы",
-                color1: "#ffecd2", 
-                color2: "#fcb69f",
-                relation: "Great-great-great-great grandfather",
-                relationKz: "Баба атасы"
-            },
-            { 
-                gen: 9, 
-                name: "Балтабай", 
-                nameEn: "Baltabay", 
-                desc: "Great-great-great grandfather", 
-                descKz: "Немере-немере атасы",
-                color1: "#ff6e7f", 
-                color2: "#bfe9ff",
-                relation: "Great-great-great grandfather",
-                relationKz: "Немере атасы"
-            },
-            { 
-                gen: 10, 
-                name: "Жантерек", 
-                nameEn: "Zhanterek", 
-                desc: "Great-great grandfather", 
-                descKz: "Арғы атасы",
-                color1: "#e0c3fc", 
-                color2: "#8ec5fc",
-                relation: "Great-great grandfather",
-                relationKz: "Арғы атасы"
-            },
-            { 
-                gen: 11, 
-                name: "Тоғайбай", 
-                nameEn: "Toghaybay", 
-                desc: "Great grandfather", 
-                descKz: "Үлкен атасы",
-                color1: "#f093fb", 
-                color2: "#f5576c",
-                relation: "Great grandfather (Үлкен атаң)",
-                relationKz: "Үлкен атаң"
-            },
-            { 
-                gen: 12, 
-                name: "Байгел", 
-                nameEn: "Baygel", 
-                desc: "Grandfather's father", 
-                descKz: "Атаңның әкесі",
-                color1: "#4facfe", 
-                color2: "#00f2fe",
-                relation: "Grandfather's father (Атаңның әкесі)",
-                relationKz: "Атаңның әкесі"
-            },
-            { 
-                gen: 13, 
-                name: "Есберген", 
-                nameEn: "Yesbergen", 
-                desc: "Grandfather", 
-                descKz: "Атам",
-                color1: "#667eea", 
-                color2: "#764ba2", 
-                special: "⭐",
-                relation: "Your Grandfather (Сенің атаң)",
-                relationKz: "Сенің атаң"
-            }
-        ];
+        const shezhireData = {
+            ancestors: [
+                { id: 1, gen: 1, name: "Дулат", nameEn: "Dulat", desc: "Рұ (Tribe) - Ұлы жүз", descKz: "Рұ - Ұлы жүздің ең ірі тайпаларының бірі", color1: "#667eea", color2: "#764ba2", special: "🏛️", relation: "Tribal Origin", relationKz: "Тайпалық бастау" },
+                { id: 2, gen: 2, name: "Жаныс", nameEn: "Zhanys", desc: "2nd Generation", descKz: "2-ші ұрпақ ата-бабам", color1: "#4facfe", color2: "#00f2fe", relation: "Ancient Ancestor", relationKz: "Ерте заманғы ата" },
+                { id: 3, gen: 3, name: "Жарылқамыс", nameEn: "Zharylkamys", desc: "3rd Generation", descKz: "3-ші ұрпақ ата-бабам", color1: "#43e97b", color2: "#38f9d7", relation: "Ancient Ancestor", relationKz: "Ерте заманғы ата" },
+                { id: 4, gen: 4, name: "Бұқар", nameEn: "Buqar", desc: "4th Generation", descKz: "4-ші ұрпақ ата-бабам", color1: "#fa709a", color2: "#fee140", relation: "Ancient Ancestor", relationKz: "Ерте заманғы ата" },
+                { id: 5, gen: 5, name: "Жауғаш", nameEn: "Zhaugash", desc: "5th Generation", descKz: "5-ші ұрпақ ата-бабам", color1: "#30cfd0", color2: "#330867", relation: "Ancient Ancestor", relationKz: "Ерте заманғы ата" },
+                { id: 6, gen: 6, name: "Сүйіндік", nameEn: "Suyindik", desc: "6th Generation", descKz: "6-шы ұрпақ ата-бабам", color1: "#a8edea", color2: "#fed6e3", relation: "Ancient Ancestor", relationKz: "Ерте заманғы ата" },
+                { id: 7, gen: 7, name: "Құлсары", nameEn: "Qulsary", desc: "7th Generation (Жеті ата)", descKz: "7-ші ұрпақ ата-бабам (Жеті ата)", color1: "#ff9a9e", color2: "#fecfef", relation: "Seventh Ancestor", relationKz: "Жетінші ата" },
+                { id: 8, gen: 8, name: "Қосқұлақ", nameEn: "Qosqulaq", desc: "8th Generation", descKz: "8-ші ұрпақ", color1: "#ffecd2", color2: "#fcb69f", relation: "Great Ancestor", relationKz: "Баба атасы" },
+                { id: 9, gen: 9, name: "Балтабай", nameEn: "Baltabay", desc: "9th Generation", descKz: "9-шы ұрпақ", color1: "#ff6e7f", color2: "#bfe9ff", relation: "Great Ancestor", relationKz: "Немере атасы" },
+                { id: 10, gen: 10, name: "Жантерек", nameEn: "Zhanterek", desc: "10th Generation", descKz: "10-шы ұрпақ", color1: "#e0c3fc", color2: "#8ec5fc", relation: "Great-great grandfather", relationKz: "Арғы атасы" },
+                { id: 11, gen: 11, name: "Тоғайбай", nameEn: "Toghaybay", desc: "11th Generation", descKz: "11-ші ұрпақ", color1: "#f093fb", color2: "#f5576c", relation: "Great grandfather", relationKz: "Үлкен атаң" },
+                { id: 12, gen: 12, name: "Байгел", nameEn: "Baygel", desc: "12th Generation", descKz: "12-ші ұрпақ", color1: "#4facfe", color2: "#00f2fe", relation: "Grandfather's father", relationKz: "Атаңның әкесі" }
+            ],
+            currentGeneration: [
+                { id: 13, parentId: 12, name: "Есберген", nameEn: "Yesbergen", desc: "Grandfather", descKz: "Атам", color1: "#667eea", color2: "#764ba2", special: "👴", relation: "Your Grandfather", relationKz: "Сенің атаң", gen: 13 },
+                { id: 14, parentId: 12, name: "Ыдырыс", nameEn: "Ydyrys", desc: "Uncle", descKz: "Ата-інің", color1: "#667eea", color2: "#764ba2", relation: "Grandfather's brother", relationKz: "Атаңның інісі", gen: 13 },
+                { id: 15, parentId: 12, name: "Бейсен", nameEn: "Beysen", desc: "Uncle", descKz: "Ата-інің", color1: "#667eea", color2: "#764ba2", relation: "Grandfather's brother", relationKz: "Атаңның інісі", gen: 13 }
+            ],
+            nextGeneration: [
+                { id: 16, parentId: 13, name: "Азамат", nameEn: "Azamat", desc: "Current Generation", descKz: "Қазіргі ұрпақ", color1: "#f093fb", color2: "#f5576c", special: "👨", relation: "You/Your Sibling", relationKz: "Сен/Ағаң-інің", gen: 14 },
+                { id: 17, parentId: 13, name: "Ахмет", nameEn: "Ahmet", desc: "Current Generation", descKz: "Қазіргі ұрпақ", color1: "#f093fb", color2: "#f5576c", special: "👨", relation: "You/Your Sibling", relationKz: "Сен/Ағаң-інің", gen: 14 },
+                { id: 18, parentId: 14, name: "Рахым", nameEn: "Rakhym", desc: "Cousin", descKz: "Немере ағаң-інің", color1: "#43e97b", color2: "#38f9d7", relation: "Cousin", relationKz: "Немере ағаң-інің", gen: 14 },
+                { id: 19, parentId: 14, name: "Рашит", nameEn: "Rashit", desc: "Cousin", descKz: "Немере ағаң-інің", color1: "#43e97b", color2: "#38f9d7", relation: "Cousin", relationKz: "Немере ағаң-інің", gen: 14 },
+                { id: 20, parentId: 14, name: "Кайсар", nameEn: "Qaysar", desc: "Cousin", descKz: "Немере ағаң-інің", color1: "#43e97b", color2: "#38f9d7", relation: "Cousin", relationKz: "Немере ағаң-інің", gen: 14 },
+                { id: 21, parentId: 15, name: "Тылек", nameEn: "Tylek", desc: "Cousin", descKz: "Немере ағаң-інің", color1: "#30cfd0", color2: "#330867", relation: "Cousin", relationKz: "Немере ағаң-інің", gen: 14 },
+                { id: 22, parentId: 15, name: "Еркын", nameEn: "Yerkyn", desc: "Cousin", descKz: "Немере ағаң-інің", color1: "#30cfd0", color2: "#330867", relation: "Cousin", relationKz: "Немере ағаң-інің", gen: 14 }
+            ]
+        };
 
-        function renderTree() {
-            const container = document.getElementById('treeContainer');
-            container.innerHTML = shezhireData.map((person, index) => `
-                <div class="generation" style="animation-delay: ${index * 0.05}s">
-                    ${person.gen > 1 ? '<div class="connector"></div>' : ''}
-                    <div class="person-card" style="--card-color-1: ${person.color1}; --card-color-2: ${person.color2}" onclick="selectPerson(${person.gen}, event)">
+        function renderFamilyTree() {
+            const container = document.getElementById('familyTree');
+            let html = '';
+
+            // Ancestors (1-12)
+            html += '<div class="generation-group">';
+            html += '<div class="gen-header"><div class="gen-icon">1-12</div><div>Ата-бабалар • Ancestors (Generations 1-12)</div></div>';
+            shezhireData.ancestors.forEach((person, index) => {
+                html += `
+                    <div class="person-card" style="--card-color-1: ${person.color1}; --card-color-2: ${person.color2}; margin-bottom: 20px;" onclick="showInfo(${person.id}, 'ancestor')">
                         ${person.special ? `<span class="special-badge">${person.special}</span>` : ''}
                         <span class="gen-badge">${person.gen}-ші ұрпақ • Gen ${person.gen}</span>
-                        <div class="person-name">${person.name} <span class="person-name-kz">(${person.nameEn})</span></div>
+                        <div class="person-name">${person.name}<span class="person-name-en">${person.nameEn}</span></div>
                         <div class="person-desc">${person.descKz}</div>
-                        <div class="person-details">
-                            <p><strong>Қазақша:</strong> ${person.name}</p>
-                            <p><strong>English:</strong> ${person.nameEn}</p>
-                            <p><strong>Туыстық:</strong> ${person.relationKz}</p>
-                            <p><strong>Relation:</strong> ${person.relation}</p>
-                            <p><strong>Рұ:</strong> Дулат • Dulat tribe</p>
-                            <p><strong>Жүз:</strong> Ұлы жүз • Uly Zhuz (Senior Zhuz)</p>
-                            <p><strong>Өңір:</strong> Жамбыл облысы, Қордай ауданы</p>
-                            <p><strong>Region:</strong> Zhambyl region, Kordai district</p>
-                        </div>
                     </div>
-                </div>
-            `).join('');
+                `;
+            });
+            html += '</div>';
+
+            // Generation 13 - Three brothers with children
+            html += '<div class="generation-group">';
+            html += '<div class="gen-header"><div class="gen-icon">13</div><div>Байгелдің балалары • Children of Baygel (Generation 13)</div></div>';
+            
+            shezhireData.currentGeneration.forEach(parent => {
+                const children = shezhireData.nextGeneration.filter(child => child.parentId === parent.id);
+                html += `
+                    <div class="family-branch">
+                        <div class="connector-line" style="--card-color-1: ${parent.color1}"></div>
+                        <div class="parent-card">
+                            <div class="person-card" style="--card-color-1: ${parent.color1}; --card-color-2: ${parent.color2}" onclick="showInfo(${parent.id}, 'current')">
+                                ${parent.special ? `<span class="special-badge">${parent.special}</span>` : ''}
+                                <span class="gen-badge">${parent.gen}-ші ұрпақ • Gen ${parent.gen}</span>
+                                <div class="person-name">${parent.name}<span class="person-name-en">${parent.nameEn}</span></div>
+                                <div class="person-desc">${parent.descKz}</div>
+                            </div>
+                        </div>
+                        ${children.length > 0 ? `
+                            <div class="children-container">
+                                ${children.map(child => `
+                                    <div class="child-card" style="--card-color-1: ${child.color1}" onclick="showInfo(${child.id}, 'next')">
+                                        ${child.special ? `<span style="font-size: 1.5em; margin-bottom: 8px; display: block;">${child.special}</span>` : ''}
+                                        <div class="child-name">${child.name}</div>
+                                        <div class="child-gen">${child.nameEn}</div>
+                                        <div class="child-gen" style="margin-top: 5px; color: #4a5568;">${child.descKz}</div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            });
+            html += '</div>';
+
+            container.innerHTML = html;
         }
 
         function renderList() {
             const container = document.getElementById('listContainer');
-            container.innerHTML = shezhireData.map((person, index) => `
-                <div class="list-item" style="--card-color-1: ${person.color1}; --card-color-2: ${person.color2}; animation-delay: ${index * 0.03}s" onclick="selectPersonList(${person.gen}, event)">
-                    <div class="list-number">${person.gen}</div>
+            const allPeople = [
+                ...shezhireData.ancestors,
+                ...shezhireData.currentGeneration,
+                ...shezhireData.nextGeneration
+            ].sort((a, b) => a.id - a.id);
+
+            container.innerHTML = allPeople.map((person, index) => `
+                <div class="list-item" style="--card-color-1: ${person.color1}; --card-color-2: ${person.color2}; animation-delay: ${index * 0.02}s" onclick="showInfoFromList(${person.id})">
+                    <div class="list-number">${person.id}</div>
                     <div class="list-content">
                         <div class="list-name">${person.name} ${person.special || ''}</div>
                         <div class="list-desc">${person.nameEn} • ${person.descKz}</div>
@@ -653,77 +716,116 @@
             `).join('');
         }
 
-        function renderTimeline() {
-            const container = document.getElementById('timelineContainer');
-            container.innerHTML = shezhireData.map((person, index) => `
-                <div class="timeline-item" style="animation-delay: ${index * 0.05}s">
-                    <div class="timeline-dot" style="--card-color-1: ${person.color1}"></div>
-                    <div class="timeline-card" style="--card-color-1: ${person.color1}" onclick="selectPersonTimeline(${person.gen}, event)">
-                        <span class="gen-badge">${person.gen}-ші ұрпақ • Gen ${person.gen}</span>
-                        <div class="person-name">${person.name} ${person.special || ''}</div>
-                        <div class="person-desc">${person.nameEn} • ${person.descKz}</div>
+        function showInfo(id, type) {
+            let person;
+            if (type === 'ancestor') {
+                person = shezhireData.ancestors.find(p => p.id === id);
+            } else if (type === 'current') {
+                person = shezhireData.currentGeneration.find(p => p.id === id);
+            } else {
+                person = shezhireData.nextGeneration.find(p => p.id === id);
+            }
+
+            if (!person) return;
+
+            const panel = document.getElementById('infoPanel');
+            const content = document.getElementById('infoPanelContent');
+            
+            content.innerHTML = `
+                <div class="info-header">
+                    <h2 class="info-title">${person.name} ${person.special || ''}</h2>
+                    <div class="info-badge" style="--info-color-1: ${person.color1}; --info-color-2: ${person.color2}">
+                        ${person.gen ? `${person.gen}-ші ұрпақ • Generation ${person.gen}` : 'Generation 14'}
                     </div>
                 </div>
-            `).join('');
+
+                <div class="info-section" style="--info-color-1: ${person.color1}">
+                    <div class="info-label">Қазақша аты • Kazakh Name</div>
+                    <div class="info-value">${person.name}</div>
+                </div>
+
+                <div class="info-section" style="--info-color-1: ${person.color1}">
+                    <div class="info-label">English Name</div>
+                    <div class="info-value">${person.nameEn}</div>
+                </div>
+
+                <div class="info-section" style="--info-color-1: ${person.color1}">
+                    <div class="info-label">Туыстық қатынасы • Relation</div>
+                    <div class="info-value">${person.relationKz}<br>${person.relation}</div>
+                </div>
+
+                <div class="info-section" style="--info-color-1: ${person.color1}">
+                    <div class="info-label">Сипаттама • Description</div>
+                    <div class="info-value">${person.descKz}<br>${person.desc}</div>
+                </div>
+
+                <div class="info-section" style="--info-color-1: ${person.color1}">
+                    <div class="info-label">Рұ • Tribe</div>
+                    <div class="info-value">Дулат • Dulat</div>
+                </div>
+
+                <div class="info-section" style="--info-color-1: ${person.color1}">
+                    <div class="info-label">Жүз • Zhuz</div>
+                    <div class="info-value">Ұлы жүз • Uly Zhuz (Senior Zhuz)</div>
+                </div>
+
+                <div class="info-section" style="--info-color-1: ${person.color1}">
+                    <div class="info-label">Өңір • Region</div>
+                    <div class="info-value">Жамбыл облысы, Қордай ауданы<br>Zhambyl region, Kordai district</div>
+                </div>
+
+                ${person.id === 1 ? `
+                    <div class="info-section" style="--info-color-1: ${person.color1}; background: linear-gradient(135deg, ${person.color1}15, ${person.color2}15);">
+                        <div class="info-label">🏛️ Тарихи маңызы • Historical Significance</div>
+                        <div class="info-value">
+                            Дулат - Ұлы жүздің ең ірі тайпаларының бірі, мәдени нәзіктігі және егіншілік тәжірибесімен танымал.
+                            <br><br>
+                            Dulat is one of the largest tribes of Uly Zhuz, historically known for cultural refinement and agricultural expertise in the Zhetysu region.
+                        </div>
+                    </div>
+                ` : ''}
+
+                ${person.id === 13 ? `
+                    <div class="info-section" style="--info-color-1: ${person.color1}; background: linear-gradient(135deg, ${person.color1}15, ${person.color2}15);">
+                        <div class="info-label">👴 Ескерту • Note</div>
+                        <div class="info-value">
+                            Есберген - сенің атаң. Оның екі баласы: Азамат және Ахмет.
+                            <br><br>
+                            Yesbergen is your grandfather. He has two children: Azamat and Ahmet.
+                        </div>
+                    </div>
+                ` : ''}
+            `;
+            
+            panel.classList.add('active');
+            panel.style.setProperty('--info-color-1', person.color1);
+            panel.style.setProperty('--info-color-2', person.color2);
+        }
+
+        function showInfoFromList(id) {
+            let person = shezhireData.ancestors.find(p => p.id === id);
+            let type = 'ancestor';
+            
+            if (!person) {
+                person = shezhireData.currentGeneration.find(p => p.id === id);
+                type = 'current';
+            }
+            if (!person) {
+                person = shezhireData.nextGeneration.find(p => p.id === id);
+                type = 'next';
+            }
+
+            if (person) {
+                showInfo(id, type);
+            }
         }
 
         function switchView(view) {
             document.querySelectorAll('.view-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
 
-            document.querySelectorAll('.tree-view, .list-view, .timeline-view').forEach(v => v.classList.remove('active'));
+            document.querySelectorAll('.family-view, .list-view').forEach(v => v.classList.remove('active'));
             document.querySelector(`.${view}-view`).classList.add('active');
-        }
-
-        function selectPerson(gen, event) {
-            event.stopPropagation();
-            document.querySelectorAll('.person-card').forEach(card => card.classList.remove('selected'));
-            event.currentTarget.classList.add('selected');
-            
-            const person = shezhireData[gen - 1];
-            showInfo(person);
-        }
-
-        function selectPersonList(gen, event) {
-            const person = shezhireData[gen - 1];
-            showInfo(person);
-        }
-
-        function selectPersonTimeline(gen, event) {
-            const person = shezhireData[gen - 1];
-            showInfo(person);
-        }
-
-        function showInfo(person) {
-            const panel = document.getElementById('infoPanel');
-            const content = document.getElementById('infoPanelContent');
-            
-            content.innerHTML = `
-                <h2 style="color: #2d3748; margin-bottom: 20px; margin-top: 20px;">${person.name} ${person.special || ''}</h2>
-                <div style="padding: 15px; background: linear-gradient(135deg, ${person.color1}, ${person.color2}); color: white; border-radius: 10px; margin-bottom: 20px;">
-                    <p style="font-size: 1.1em; font-weight: 600;">${person.gen}-ші ұрпақ • Generation ${person.gen}</p>
-                </div>
-                <div style="color: #4a5568; line-height: 1.8;">
-                    <p><strong>Қазақша аты:</strong> ${person.name}</p>
-                    <p><strong>English Name:</strong> ${person.nameEn}</p>
-                    <p style="margin-top: 10px;"><strong>Туыстық қатынасы:</strong> ${person.relationKz}</p>
-                    <p><strong>Relation:</strong> ${person.relation}</p>
-                    <p style="margin-top: 10px;"><strong>Сипаттама:</strong> ${person.descKz}</p>
-                    <p><strong>Description:</strong> ${person.desc}</p>
-                    <p style="margin-top: 10px;"><strong>Рұ:</strong> Дулат</p>
-                    <p><strong>Tribe:</strong> Dulat (One of the largest tribes)</p>
-                    <p style="margin-top: 10px;"><strong>Жүз:</strong> Ұлы жүз (Үлкен жүз)</p>
-                    <p><strong>Zhuz:</strong> Uly Zhuz (Senior/Great Zhuz)</p>
-                    <p><strong>Дәстүрлі өңір:</strong> Жамбыл облысы, Қордай ауданы</p>
-                    <p><strong>Traditional Region:</strong> Zhambyl region, Kordai district</p>
-                    <p style="margin-top: 10px;"><strong>Тарихи маңызы:</strong> Қазақ халқының үш негізгі тайпалық одақтарының бірі</p>
-                    <p><strong>Historical Significance:</strong> Part of one of the three main tribal confederations of Kazakh people</p>
-                    ${person.gen === 1 ? '<p style="margin-top: 15px; padding: 10px; background: #f7fafc; border-radius: 8px;"><strong>Ескерту:</strong> Дулат - Ұлы жүздің ең ірі тайпаларының бірі, мәдени нәзіктігі және егіншілік тәжірибесімен танымал.</p><p style="padding: 10px; background: #f7fafc; border-radius: 8px; margin-top: 5px;"><strong>Note:</strong> Dulat is one of the largest tribes of Uly Zhuz, known for cultural refinement and agricultural expertise.</p>' : ''}
-                    ${person.gen === 13 ? '<p style="margin-top: 15px; padding: 10px; background: #f7fafc; border-radius: 8px;"><strong>Ескерту:</strong> Сіз қазіргі ұрпақсыз, ғасырлар бойғы мұраны алға жалғастырып келесіз.</p><p style="padding: 10px; background: #f7fafc; border-radius: 8px; margin-top: 5px;"><strong>Note:</strong> You are the current generation, carrying forward centuries of heritage.</p>' : ''}
-                </div>
-            `;
-            
-            panel.classList.add('active');
         }
 
         function closeInfo() {
@@ -731,65 +833,122 @@
         }
 
         function downloadShezhire() {
-            let content = "МЕНІҢ ШЕЖІРЕМ - MY KAZAKH SHEZHIRE\n";
-            content += "Жеті Ата - Seven Ancestors\n\n";
+            let content = "═══════════════════════════════════════════════════════════\n";
+            content += "              МЕНІҢ ШЕЖІРЕМ - MY KAZAKH SHEZHIRE\n";
+            content += "                    Жеті Ата - Seven Ancestors\n";
+            content += "═══════════════════════════════════════════════════════════\n\n";
             content += "Дулат руы - Dulat Tribe\n";
             content += "Ұлы жүз - Uly Zhuz (Senior Zhuz)\n";
-            content += "═══════════════════════════════════════\n\n";
+            content += "Жамбыл облысы, Қордай ауданы - Zhambyl region, Kordai district\n\n";
+            content += "═══════════════════════════════════════════════════════════\n\n";
             
-            shezhireData.forEach(person => {
+            content += "АТА-БАБАЛАР • ANCESTORS (Generations 1-12)\n";
+            content += "───────────────────────────────────────────────────────────\n\n";
+            shezhireData.ancestors.forEach(person => {
                 content += `${person.gen}-ші ұрпақ | Generation ${person.gen}\n`;
-                content += `Аты: ${person.name} (${person.nameEn})\n`;
-                content += `Туыстық: ${person.relationKz} | ${person.relation}\n`;
-                content += `Сипаттама: ${person.descKz}\n`;
-                content += `Description: ${person.desc}\n\n`;
+                content += `   Аты: ${person.name} (${person.nameEn})\n`;
+                content += `   Туыстық: ${person.relationKz} | ${person.relation}\n`;
+                content += `   Сипаттама: ${person.descKz}\n\n`;
             });
+
+            content += "\n═══════════════════════════════════════════════════════════\n\n";
+            content += "БАЙГЕЛДІҢ БАЛАЛАРЫ • CHILDREN OF BAYGEL (Generation 13)\n";
+            content += "───────────────────────────────────────────────────────────\n\n";
             
-            content += "═══════════════════════════════════════\n";
-            content += "Дәстүрлі өңір: Жамбыл облысы, Қордай ауданы\n";
-            content += "Heritage: Zhambyl region, Kordai district\n";
-            content += `Жасалған күні: ${new Date().toLocaleDateString('kk-KZ')} | Generated: ${new Date().toLocaleDateString()}\n`;
+            shezhireData.currentGeneration.forEach(parent => {
+                content += `\n${parent.name} (${parent.nameEn}) - ${parent.descKz}\n`;
+                const children = shezhireData.nextGeneration.filter(child => child.parentId === parent.id);
+                if (children.length > 0) {
+                    content += `   Балалары • Children:\n`;
+                    children.forEach(child => {
+                        content += `   → ${child.name} (${child.nameEn}) - ${child.descKz}\n`;
+                    });
+                }
+                content += '\n';
+            });
+
+            content += "\n═══════════════════════════════════════════════════════════\n";
+            content += "СТАТИСТИКА • STATISTICS\n";
+            content += "───────────────────────────────────────────────────────────\n";
+            content += `Барлық адамдар • Total People: 22\n`;
+            content += `Ұрпақтар саны • Number of Generations: 14\n`;
+            content += `Тармақтар • Family Branches: 3\n\n`;
+            content += "═══════════════════════════════════════════════════════════\n";
+            content += `Жасалған күні • Generated: ${new Date().toLocaleDateString('kk-KZ')} | ${new Date().toLocaleDateString()}\n`;
+            content += "═══════════════════════════════════════════════════════════\n";
             
-            const blob = new Blob([content], { type: 'text/plain' });
+            const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
             a.download = 'Менің_Шежірем_My_Shezhire.txt';
+            document.body.appendChild(a);
             a.click();
+            document.body.removeChild(a);
             URL.revokeObjectURL(url);
-            alert('Шежіре жүктелді! • Shezhire downloaded!');
+            
+            alert('✅ Шежіре жүктелді! • Shezhire downloaded!');
         }
 
         function shareShezhire() {
-            const text = `Менің Шежірем - My Kazakh Shezhire\n\nДулат руы, Ұлы жүз\nDulat tribe, Uly Zhuz\n\n${shezhireData[0].name} бастап ${shezhireData[shezhireData.length-1].name} дейін\nFrom ${shezhireData[0].name} to ${shezhireData[shezhireData.length-1].name}\n\n13 ұрпақ мұра! • 13 generations of heritage!\n\nӨңір: Жамбыл облысы, Қордай\nRegion: Zhambyl, Kordai`;
+            const text = `🌳 Менің Шежірем - My Kazakh Shezhire
+
+Дулат руы, Ұлы жүз
+Dulat tribe, Uly Zhuz
+
+${shezhireData.ancestors[0].name} бастап ${shezhireData.nextGeneration[0].name} дейін
+From ${shezhireData.ancestors[0].name} to current generation
+
+📊 22 адам • 14 ұрпақ • 3 тармақ
+22 people • 14 generations • 3 branches
+
+📍 Өңір: Жамбыл облысы, Қордай
+Region: Zhambyl, Kordai`;
             
             if (navigator.share) {
                 navigator.share({
-                    title: 'Менің Шежірем - My Kazakh Shezhire',
+                    title: '🌳 Менің Шежірем - My Kazakh Shezhire',
                     text: text
-                }).catch(err => console.log('Share cancelled'));
-            } else {
-                navigator.clipboard.writeText(text).then(() => {
-                    alert('Шежіре ақпараты көшірілді! • Shezhire info copied to clipboard!');
+                }).catch(err => {
+                    if (err.name !== 'AbortError') {
+                        copyToClipboard(text);
+                    }
                 });
+            } else {
+                copyToClipboard(text);
             }
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('✅ Шежіре ақпараты көшірілді! • Shezhire info copied to clipboard!');
+            }).catch(err => {
+                console.error('Copy failed:', err);
+                alert('❌ Көшіру сәтсіз аяқталды • Copy failed');
+            });
         }
 
         function printShezhire() {
             window.print();
         }
 
-        // Initialize all views
-        renderTree();
+        // Initialize
+        renderFamilyTree();
         renderList();
-        renderTimeline();
 
         // Close info panel when clicking outside
         document.addEventListener('click', function(event) {
             const panel = document.getElementById('infoPanel');
-            if (panel.classList.contains('active') && !panel.contains(event.target) && !event.target.closest('.person-card, .list-item, .timeline-card')) {
+            if (panel.classList.contains('active') && 
+                !panel.contains(event.target) && 
+                !event.target.closest('.person-card, .child-card, .list-item')) {
                 closeInfo();
             }
+        });
+
+        // Prevent closing when clicking inside panel
+        document.getElementById('infoPanel').addEventListener('click', function(event) {
+            event.stopPropagation();
         });
     </script>
 </body>
